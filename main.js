@@ -51,6 +51,8 @@ const paddle = {
     dx: 0
 }
 
+
+
 //Draw ball onto canvas
 function drawBall(){
     cntxt.beginPath();
@@ -86,10 +88,12 @@ function drawBlocks(){
 //Drawing score on the canvas
 function drawScore(){
     
+    
 }
 
 //Function to move paddle on the canvas
 function movePaddle(){
+    
     paddle.x += paddle.dx;
 
     //Surrounding wall detection
@@ -103,11 +107,26 @@ function movePaddle(){
 
 //Function to move ball on the canvas
 function moveBall(){
-    ball.x += ball.dx;
-    ball.y += ball.dy;
+    ball.x +=  ball.dx;
+    ball.y +=  ball.dy;
 
     //Surrounding wall collision detection(x-axis)
     //right and left walls
+    if (ball.x<=0)
+    {
+        ball.dx=4;
+        if (ball.x>canvaswidth)
+         { ball.dx = -4 }
+         
+
+    }
+    if (ball.y <=0)
+    {
+        ball.dy=4;
+        if (ball.y>=canvuswidth)
+         { ball.dy = - 4 }
+    }
+
     
 
     //Surrounding wall collision detection(y-axis)
@@ -147,6 +166,7 @@ function showAllBlocks(){
 }
 
 function showGamePauseText(){
+    block.forEach(m)
     
 }
 
